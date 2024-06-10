@@ -24,6 +24,10 @@ app.use("/auth", authRouter);
 app.use("/media", mediaRouter);
 app.use("/user", userRouter);
 
+app.get("/", (req, res) => {
+    res.send("Hello user! Warm wishings!")
+})
+
 
 app.listen(PORT, function () {
     console.log(`Listening on port ${PORT}!`);
