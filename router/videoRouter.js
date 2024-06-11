@@ -38,7 +38,7 @@ const getDirSize = (dirPath) => {
 
 const upload = multer({ storage: storage });
 
-app.get("/test", (req, res) => {
+router.get("/test", (req, res) => {
     res.send("Hello user! Warm wishings! Test")
 })
 
