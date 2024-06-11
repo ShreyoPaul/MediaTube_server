@@ -28,6 +28,10 @@ app.get("/", (req, res) => {
     res.send("Hello user! Warm wishings!")
 })
 
+app.get("/test", (req, res) => {
+    res.send("Hello user! Warm wishings! Test")
+})
+
 
 app.listen(process.env.PORT || PORT, function () {
     console.log(`Listening on port ${PORT}!`);
