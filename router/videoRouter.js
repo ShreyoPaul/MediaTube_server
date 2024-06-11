@@ -39,6 +39,8 @@ const getDirSize = (dirPath) => {
 const upload = multer({ storage: storage });
 
 router.get("/test", (req, res) => {
+    const { db } = mongoose.connection;
+    console.log(db)
     res.send("Hello user! Warm wishings! Test")
 })
 
