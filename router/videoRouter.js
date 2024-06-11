@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const userSchema = require("../mongoDB/models/userSchema");
 const { ObjectId } = require("mongodb");
 const { authenticateToken } = require("../utils/authentication");
+const { connectDB } = require("../mongoDB/mongoConnection");
 
 // Multer configuration
 const storage = multer.diskStorage({
@@ -35,6 +36,8 @@ const getDirSize = (dirPath) => {
 
     return (size / 1048576).toFixed(2);
 };
+
+connectDB()
 
 const upload = multer({ storage: storage });
 
