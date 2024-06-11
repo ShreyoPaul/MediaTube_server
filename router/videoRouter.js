@@ -43,7 +43,7 @@ const upload = multer({ storage: storage });
 
 router.get("/test", (req, res) => {
     const { db } = mongoose.connection;
-    console.log(db)
+    console.log(db && "DB")
     res.json({ data: db.collection('users').find() })
 })
 
