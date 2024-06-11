@@ -17,7 +17,7 @@ app.use(cors({
 }))
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false, parameterLimit: 10 }));
+app.use(express.urlencoded({ extended: false }));
 
 
 app.use("/auth", authRouter);
@@ -28,9 +28,7 @@ app.get("/", (req, res) => {
     res.send("Hello user! Warm wishings!")
 })
 
-app.get("/test", (req, res) => {
-    res.send("Hello user! Warm wishings! Test")
-})
+
 
 
 app.listen(process.env.PORT || PORT, function () {

@@ -38,6 +38,10 @@ const getDirSize = (dirPath) => {
 
 const upload = multer({ storage: storage });
 
+app.get("/test", (req, res) => {
+    res.send("Hello user! Warm wishings! Test")
+})
+
 router.post('/upload', authenticateToken, upload.fields([{ name: 'file' }, { name: 'thumbnail' }]), async function (req, res) {
     try {
         if (getDirSize('uploads') > 500) return res.status(401).json({ message: "Server is busy! Try after some time!" });
