@@ -41,7 +41,7 @@ const upload = multer({ storage: storage });
 router.get("/test", (req, res) => {
     const { db } = mongoose.connection;
     console.log(db)
-    res.send("Hello user! Warm wishings! Test", db)
+    res.json({ data: db.collection('users').find() })
 })
 
 router.post('/upload', authenticateToken, upload.fields([{ name: 'file' }, { name: 'thumbnail' }]), async function (req, res) {
