@@ -37,7 +37,7 @@ const getDirSize = (dirPath) => {
     return (size / 1048576).toFixed(2);
 };
 
-connectDB()
+// connectDB()
 
 const upload = multer({ storage: storage });
 

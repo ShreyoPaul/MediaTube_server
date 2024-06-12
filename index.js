@@ -32,7 +32,6 @@ app.get("/", (req, res) => {
 })
 
 app.get("/test", (req, res) => {
-    connectDB()
     const { db } = mongoose.connection;
     console.log(db)
     res.json({ data: db.collection('users').find() })
