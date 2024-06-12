@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const userSchema = require("../mongoDB/models/userSchema");
 const { ObjectId } = require("mongodb");
 const { authenticateToken } = require("../utils/authentication");
-const { connectDB } = require("../mongoDB/mongoConnection");
+// const { connectDB } = require("../mongoDB/mongoConnection");
 
 // Multer configuration
 const storage = multer.diskStorage({
@@ -281,7 +281,6 @@ router.post('/play_try', upload.single('file'), (req, res) => {
 })
 
 router.post('/videos', async function (req, res) {
-    connectDB()
     const { db } = mongoose.connection
     const { tags, thumbnailname } = req.body
     console.log(db && "DB")
