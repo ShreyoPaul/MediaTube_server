@@ -283,6 +283,8 @@ router.post('/play_try', upload.single('file'), (req, res) => {
 router.post('/videos', async function (req, res) {
     const { db } = mongoose.connection
     const { tags, thumbnailname } = req.body
+    console.log(db && "DB")
+    console.log(tags, thumbnailname)
     // console.log("body", req.body)
     // const video = await db.collection('fs.files').find({_id:new ObjectId('6641e01ad872445d08cc9938')})
     const bucket = new mongoose.mongo.GridFSBucket(db);
