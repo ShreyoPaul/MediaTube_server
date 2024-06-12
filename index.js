@@ -12,7 +12,7 @@ const { default: mongoose } = require("mongoose");
 const PORT = 8001
 const app = express();
 
-connectDB()
+// connectDB()
 
 app.use(cors({
     origin: "*",
