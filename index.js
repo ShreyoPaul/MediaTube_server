@@ -12,6 +12,8 @@ const { default: mongoose } = require("mongoose");
 const PORT = 8001
 const app = express();
 
+connectDB()
+
 app.use(cors({
     origin: "*",
     methods: ["GET", "POST", "DELETE", "UPDATE", "OPTION", "PUT"]
@@ -39,5 +41,5 @@ app.get("/test", (req, res) => {
 
 app.listen(process.env.PORT || PORT, function () {
     console.log(`Listening on port ${PORT}!`);
-    connectDB()
+
 });
