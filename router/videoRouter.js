@@ -42,9 +42,13 @@ connectDB()
 const upload = multer({ storage: storage });
 
 router.get("/test", (req, res) => {
-    const { db } = mongoose.connection;
-    console.log(db && "DB")
-    res.json({ data: db.collection('users').find() })
+    try {
+        const { db } = mongoose.connection;
+        console.log(db && "DB")
+        return res.json({ data: db.collection('users').find() })
+    } catch (error) {
+        return res.json(error)
+    }
 })
 
 router.post('/upload', authenticateToken, upload.fields([{ name: 'file' }, { name: 'thumbnail' }]), async function (req, res) {
