@@ -281,6 +281,7 @@ router.post('/play_try', upload.single('file'), (req, res) => {
 })
 
 router.post('/videos', async function (req, res) {
+    connectDB()
     const { db } = mongoose.connection
     const { tags, thumbnailname } = req.body
     console.log(db && "DB")

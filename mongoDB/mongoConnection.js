@@ -10,6 +10,16 @@ mongoose.connect(process.env.MONGO_URI).then((data) => {
     console.log('Database connection ERROR :', err)
 })
 
+const connectDB = () => {
+    mongoose.set("strictQuery", false)
+    mongoose.connect(process.env.MONGO_URI).then((data) => {
+        console.log("MongoDB connected!")
+        db = data
+    }).catch((err) => {
+        console.log('Database connection ERROR :', err)
+    })
+}
+
 
 // mongoose.set('strictQuery', false)
 
@@ -19,4 +29,4 @@ mongoose.connect(process.env.MONGO_URI).then((data) => {
 //     console.log("MongoDB connected!")
 // }).catch((error) => console.log(error))
 
-module.exports = { db }
+module.exports = { connectDB, db }
