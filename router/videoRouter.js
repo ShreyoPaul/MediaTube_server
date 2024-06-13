@@ -257,8 +257,10 @@ router.get("/play_try/:video", async function (req, res) {
 });
 
 router.post('/play_try', upload.single('file'), (req, res) => {
+    const db = connectDB()
+    console.log(db && "DB")
     console.log(req.file)
-    const { db } = mongoose.connection;
+    // const { db } = mongoose.connection;
     bucket = new mongoose.mongo.GridFSBucket(db);
     // const bucket = new mongodb.GridFSBucket(db);
 
