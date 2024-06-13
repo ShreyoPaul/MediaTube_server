@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const userSchema = require("../mongoDB/models/userSchema");
 const { ObjectId } = require("mongodb");
 const { authenticateToken } = require("../utils/authentication");
-// const { connectDB } = require("../mongoDB/mongoConnection");
+const { connectDB } = require("../mongoDB/mongoConnection");
 
 // Multer configuration
 const storage = multer.diskStorage({
