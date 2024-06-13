@@ -45,7 +45,7 @@ router.get("/test", (req, res) => {
     try {
         const { db } = mongoose.connection;
         console.log(db && "DB")
-        return res.json({ data: db.collection('users').find() })
+        return res.json({ data: db.databaseName })
     } catch (error) {
         return res.json(error)
     }
