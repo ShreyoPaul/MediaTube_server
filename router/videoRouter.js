@@ -46,7 +46,7 @@ router.get("/test", (req, res) => {
         connectDB()
         const { db } = mongoose.connection;
         console.log(db && "DB")
-        return res.json({ data: db.databaseName })
+        res.json({ data: db ? "DB" : "No DB" })
     } catch (error) {
         return res.json(error)
     }
