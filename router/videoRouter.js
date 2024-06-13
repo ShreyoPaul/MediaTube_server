@@ -216,8 +216,9 @@ router.get("/play_try/:video", async function (req, res) {
     if (!range) {
         res.status(400).send("Requires Range header");
     }
-
-    const { db } = mongoose.connection;
+    const db = connectDB()
+    console.log(db && "DB")
+    // const { db } = mongoose.connection;
 
     // GridFS Collection
     const video = await db.collection('fs.files').findOne({ _id: new ObjectId(req.params.video) })
