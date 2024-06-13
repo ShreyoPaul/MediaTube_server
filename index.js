@@ -8,6 +8,7 @@ const authRouter = require("./router/auth");
 const mediaRouter = require("./router/videoRouter");
 const userRouter = require("./router/userRouter");
 const { default: mongoose } = require("mongoose");
+const { connectDB } = require("./mongoDB/mongoConnection");
 
 const PORT = 8001
 const app = express();
@@ -32,6 +33,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/test", (req, res) => {
+    connectDB()
     const { db } = mongoose.connection;
     console.log(db && "/test -----DB")
     res.json({ data: db ? "DB" : "No DB" })
