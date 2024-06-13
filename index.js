@@ -3,7 +3,7 @@ dotenv.config()
 
 const cors = require("cors")
 const express = require("express");
-// const { connectDB } = require("./mongoDB/mongoConnection");
+const { connectDB } = require("./mongoDB/mongoConnection");
 const authRouter = require("./router/auth");
 const mediaRouter = require("./router/videoRouter");
 const userRouter = require("./router/userRouter");
