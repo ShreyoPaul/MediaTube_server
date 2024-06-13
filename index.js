@@ -3,7 +3,7 @@ dotenv.config()
 
 const cors = require("cors")
 const express = require("express");
-const { connectDB } = require("./mongoDB/mongoConnection");
+require("./mongoDB/mongoConnection");
 const authRouter = require("./router/auth");
 const mediaRouter = require("./router/videoRouter");
 const userRouter = require("./router/userRouter");
@@ -33,8 +33,8 @@ app.get("/", (req, res) => {
 
 app.get("/test", (req, res) => {
     const { db } = mongoose.connection;
-    console.log(db)
-    res.json({ data: db.collection('users').find() })
+    console.log(db && "/test -----DB")
+    res.json({ data: db ? "DB" : "No DB" })
 })
 
 
